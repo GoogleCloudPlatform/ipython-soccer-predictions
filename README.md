@@ -37,8 +37,7 @@ Download and run the docker image we prepared:
 
 `sudo docker run -p 8888:8888 fhoffa/ipython-predictions:v1`
 
-
-Navigate to notebook:
+Wait until Docker downloads and runs the container, then navigate to the notebook:
 
 http://127.0.0.1:8888/notebooks/worldcup/regression/wc-final.ipynb
 
