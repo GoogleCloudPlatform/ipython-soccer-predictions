@@ -1,3 +1,17 @@
+#!/usr/bin/python2.7
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS-IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 """
     Ranks soccer teams by computing a power index based
     on game outcomes.
@@ -35,7 +49,7 @@ def _build_team_matrix(data, target_col):
     teams[target_col] = result
 
     current_season = None
-    current_discount = 1.0
+    current_discount = 2.0
 
     for game in xrange(nrows):
         home = data.iloc[game * 2]
@@ -43,7 +57,7 @@ def _build_team_matrix(data, target_col):
         if home['seasonid'] != current_season:
             # Discount older seasons.
             current_season = home['seasonid']
-            current_discount *= 0.9
+            current_discount *= 0.6
             print "New season %s" % (current_season,)
 
         home_id = str(home['teamid'])
@@ -119,7 +133,7 @@ def _get_power_map(competition, competition_data, col, coerce_fn):
             outcomes = games[col]
             del games[col]
             competition_power = _build_power(games, outcomes, coerce_fn, acc,
-                                             alpha)
+                                             alpha, snap=False)
             if not competition_power:
                 alpha /= 2
                 print 'Reducing alpha for %s to %f due lack of range' % (
