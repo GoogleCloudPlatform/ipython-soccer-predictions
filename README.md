@@ -39,7 +39,7 @@ Download and run the docker image we prepared:
 
 Wait until Docker downloads and runs the container, then navigate to the notebook:
 
-http://localhost:8888/notebooks/soccer/predict/wc-final.ipynb
+http://127.0.0.1:8888/notebooks/soccer/predict/wc-final.ipynb
 
 
 ## Contributing changes
