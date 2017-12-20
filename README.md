@@ -1,6 +1,10 @@
 ipython-soccer-predictions
 ==========================
 
+![status: inactive](https://img.shields.io/badge/status-inactive-red.svg)
+
+This project is no longer actively developed or maintained.
+
 ## Machine learning applied to soccer
 
 Sample IPython notebook with soccer predictions
